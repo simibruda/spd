@@ -7,11 +7,15 @@
   }
   
   body {
-    background: linear-gradient(
-      90deg,
-      rgba(48, 16, 255, 1) 0%,
-      rgba(100, 115, 255, 1) 100%
-    );
+    background: rgb(209, 164, 252);
+  }
+  .TheList{
+      float:right; 
+      background:rgb(213, 133, 248);
+      width:25%;
+      height:750px;
+      border-radius: 2%;
+
   }
   .todo-app {
     display: flex;
@@ -28,8 +32,9 @@
   
   h1 {
     margin: 32px 0;
-    color: #fff;
+    color: rgb(0, 0, 0);
     font-size: 24px;
+    float: 
   }
   
   .complete {
