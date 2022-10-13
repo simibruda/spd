@@ -28,6 +28,7 @@ function TodoForm(props) {
       {props.edit ? (
         <>
           <input
+          autoComplete='off'
             placeholder='Update your item'
             value={input}
             onChange={handleChange}
@@ -42,6 +43,7 @@ function TodoForm(props) {
       ) : (
         <>
           <input
+          autoComplete='off'
             placeholder='Add a todo'
             value={input}
             onChange={handleChange}

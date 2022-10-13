@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
+
 import TheList from './components/TheList';
-import TodoList from './components/TodoList';
 
 function App() {
   return (
     <div>
+     <Navbar/>
       <TheList />
     </div>
-      
-  
   );
 }
 
