@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-
 import TheList from './components/TheList';
 
 function App() {
