@@ -9,6 +9,7 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
     value: ''
   });
 
+
   const submitUpdate = value => {
     updateTodo(edit.id, value);
     setEdit({
@@ -18,7 +19,8 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
   };
 
   if (edit.id) {
-    return <TodoForm edit={edit} onSubmit={submitUpdate} />;
+    return <TodoForm edit={edit}
+    onSubmit={submitUpdate} />;
   }
 
   return todos.map((todo, index) => (
@@ -27,7 +29,8 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
       key={index}
     >
       <div key={todo.id} onClick={() => completeTodo(todo.id)}>
-        {todo.text}
+        {todo.text} 
+        <p className='data-todo'>{todo.dates}</p>
       </div>
       <div className='icons'>
         <RiCloseCircleLine

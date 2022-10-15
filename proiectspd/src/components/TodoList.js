@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import TodoForm from './TodoForm';
 import Todo from './Todo';
 import './TodoList.css';
-import MyCalendar from './MyCalendar';
-function TodoList({date}) {
+
+function TodoList({sendData}) {
   
   const [todos, setTodos] = useState([]);
 
@@ -42,11 +42,16 @@ function TodoList({date}) {
     setTodos(updatedTodos);
   };
 
+
   return (
     <div className='TheList'>
-      <h1>What's the Plan for {date}?</h1>
-      <TodoForm onSubmit={addTodo} />
+      <h1>What's the Plan for {sendData}?</h1>
+      <TodoForm 
+   onSubmit={addTodo} 
+   MyData={sendData}
+       />
       <Todo
+        listData={sendData}
         todos={todos}
         completeTodo={completeTodo}
         removeTodo={removeTodo}
