@@ -91,7 +91,7 @@
       rgba(255, 84, 17, 1) 100%
     );
   
-    padding: 16px;
+    padding: 30px;
     border-radius: 5px;
     width: 90%;
   }
@@ -134,5 +134,8 @@
   
   .edit-icon {
     color: #fff;
+  }
+  .data-todo{
+    color: #161a2b;
   }
   

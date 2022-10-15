@@ -8,17 +8,19 @@ function TodoForm(props) {
   useEffect(() => {
     inputRef.current.focus();
   });
-
+ 
   const handleChange = e => {
     setInput(e.target.value);
   };
 
+const TheListData=props.MyData
   const handleSubmit = e => {
     e.preventDefault();
 
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
-      text: input
+      text: input,
+      dates:TheListData
     });
     setInput('');
   };
