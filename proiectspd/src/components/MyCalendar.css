@@ -1,0 +1,14 @@
+.MyCalendar{
+    float:left ;
+    height: 750px 175px;
+   
+}
+#button-cal{
+    background: linear-gradient(
+        90deg,
+        rgba(93, 12, 255, 1) 0%,
+        rgba(155, 0, 250, 1) 100%
+      );
+      padding: 16px 22px;
+      border-radius: 7%;
+}
