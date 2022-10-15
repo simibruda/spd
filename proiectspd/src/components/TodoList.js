@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import TodoForm from './TodoForm';
 import Todo from './Todo';
-
-function TodoList() {
+import './TodoList.css';
+import MyCalendar from './MyCalendar';
+function TodoList({date}) {
+  
   const [todos, setTodos] = useState([]);
 
   const addTodo = todo => {
@@ -42,7 +44,7 @@ function TodoList() {
 
   return (
     <div className='TheList'>
-      <h1>What's the Plan for Today?</h1>
+      <h1>What's the Plan for {date}?</h1>
       <TodoForm onSubmit={addTodo} />
       <Todo
         todos={todos}
