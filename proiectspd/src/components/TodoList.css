@@ -138,4 +138,17 @@
   .data-todo{
     color: #161a2b;
   }
-  
+  input.container-checkbox{
+    transform: scale(80%);
+  }
+  .container-checkbox:checked {
+    border: none;
+    outline: 2px solid deeppink;
+    
+}
+.intemList {
+  height: 450px;
+  overflow-x: hidden;
+  overflow-y:  scroll;
+  scrollbar-color: rgba(255, 12, 241, 1) ;
+}

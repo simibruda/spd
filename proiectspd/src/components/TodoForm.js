@@ -20,7 +20,9 @@ const TheListData=props.MyData
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
       text: input,
-      dates:TheListData
+      dates:TheListData,
+      check:false
+     
     });
     setInput('');
   };

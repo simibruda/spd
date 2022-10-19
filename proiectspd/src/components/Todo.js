@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import TodoForm from './TodoForm';
 import { RiCloseCircleLine } from 'react-icons/ri';
-import { TiEdit } from 'react-icons/ti';
+
 
 const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
   const [edit, setEdit] = useState({
     id: null,
     value: ''
   });
+  const allInputs=todos.length;
+  const [cont, inCont]=useState(0);
+function Checked(){
+  inCont(prev=> prev + 1 );
+}
+
 
 
   const submitUpdate = value => {
@@ -19,30 +25,31 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
   };
 
   if (edit.id) {
-    return <TodoForm edit={edit}
+    return <TodoForm edit={edit} 
     onSubmit={submitUpdate} />;
   }
 
   return todos.map((todo, index) => (
+    
     <div
-      className={todo.isComplete ? 'todo-row complete' : 'todo-row'}
+      className={'todo-row'}
       key={index}
     >
       <div key={todo.id} onClick={() => completeTodo(todo.id)}>
         {todo.text} 
         <p className='data-todo'>{todo.dates}</p>
       </div>
+      <label className="container-checkbox">
+    
+    </label>
       <div className='icons'>
-        <RiCloseCircleLine
-          onClick={() => removeTodo(todo.id)}
-          className='delete-icon'
-        />
-        <TiEdit
-          onClick={() => setEdit({ id: todo.id, value: todo.text })}
-          className='edit-icon'
-        />
+      <input type="radio" onChange={Checked}/>
+    <p>{cont}/{allInputs}</p>
+        
+        
       </div>
     </div>
+    
   ));
 };
 
