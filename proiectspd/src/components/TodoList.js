@@ -15,7 +15,7 @@ function TodoList({sendData}) {
     const newTodos = [todo, ...todos];
 
     setTodos(newTodos);
-    console.log(...todos);
+    
   };
 
   const updateTodo = (todoId, newValue) => {
@@ -50,13 +50,15 @@ function TodoList({sendData}) {
    onSubmit={addTodo} 
    MyData={sendData}
        />
+       <div className='intemList'>
       <Todo
         listData={sendData}
         todos={todos}
         completeTodo={completeTodo}
-        removeTodo={removeTodo}
+       removeTodo={removeTodo}
         updateTodo={updateTodo}
       />
+      </div>
   </div>
   );
 }
