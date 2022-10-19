@@ -1,16 +1,21 @@
-import React, { useState} from 'react';
+import React from 'react';
 import './App.css';
-import MyCalendar from './components/MyCalendar';
-import Navbar from './components/Navbar';
-import TodoList from './components/TodoList';
-
+import Navbar from './Navbar';
+import { Route , Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
+import Infografic from './pages/Infografic';
 function App() {
-  const [data , setDat] =useState('');
+  
   return (
     <div>
      <Navbar/>
-      <MyCalendar setDat={setDat}/>
-     <TodoList sendData={data}/>
+      
+      <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/pages/Dashboard' element={<Dashboard />} />
+          <Route path='/pages/Infografic' element={<Infografic />} />
+      </Routes>
     </div>
   );
 }
