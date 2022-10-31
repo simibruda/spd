@@ -16,16 +16,36 @@ function TodoForm(props) {
 const TheListData=props.MyData
   const handleSubmit = e => {
     e.preventDefault();
-
+  const id= Math.floor(Math.random() * 10000)
     props.onSubmit({
-      id: Math.floor(Math.random() * 10000),
+      id: id,
       text: input,
       dates:TheListData,
-      check:false
-     
+      checked:false
     });
+   
+    const dbobject={
+      id:id,
+      text: input,
+      dates:new Date(TheListData).getFullYear() + "-" + ("0" + (new Date(TheListData).getMonth() + 1)).slice(-2) + "-" + ("0" + new Date(TheListData).getDate()).slice(-2),
+      checked:false
+  
+    }
+
+    fetch('/add_task', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body:JSON.stringify(dbobject)
+    }).then(response=>response.json()).then(data=>{
+         
+         //Do anything else like Toast etc.
+    })
     setInput('');
+  
   };
+
+  
+
 
   return (
     <form onSubmit={handleSubmit} className='todo-form'>

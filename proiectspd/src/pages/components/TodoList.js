@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TodoForm from './TodoForm';
 import Todo from './Todo';
 import './TodoList.css';
 
 function TodoList({sendData}) {
-  
+  const [chek,setChek]=useState('');
   const [todos, setTodos] = useState([]);
 
+  const [dblist , takeDbtask]=useState([]);
   const addTodo = todo => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
@@ -31,6 +32,8 @@ function TodoList({sendData}) {
 
     setTodos(removedArr);
   };
+  
+
 
   const completeTodo = id => {
     let updatedTodos = todos.map(todo => {
@@ -43,6 +46,20 @@ function TodoList({sendData}) {
   };
 
 
+
+  useEffect(()=>{
+    fetch('/take_tasks', {
+     method: 'post',
+     headers: {'Content-Type': 'application/json'}
+   }).then(response=>response.json()).then(data=>{
+     takeDbtask(data);
+      
+   })   
+   },[todos,chek]);
+
+   //console.log(chek);
+
+  
   return (
     <div className='TheList'>
       <h1>What's the Plan for {sendData}?</h1>
@@ -53,10 +70,11 @@ function TodoList({sendData}) {
        <div className='intemList'>
       <Todo
         listData={sendData}
-        todos={todos}
+        todos={dblist}
         completeTodo={completeTodo}
        removeTodo={removeTodo}
         updateTodo={updateTodo}
+        setChek={setChek}
       />
       </div>
   </div>
