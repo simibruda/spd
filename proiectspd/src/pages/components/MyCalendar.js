@@ -4,12 +4,9 @@ import './MyCalendar.css';
 import 'react-calendar/dist/Calendar.css';
 
 function MyCalendar({setDat}) {
-    const [date, setDate] = useState(new Date())
-
-  let MyDate=date.toDateString();
-
+    const [date, setDate] = useState(new Date());
    useEffect(() => {
-    setDat(MyDate);
+    setDat(date.toDateString());
    });
 
     return (
