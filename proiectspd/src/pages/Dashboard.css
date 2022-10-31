@@ -1,4 +1,23 @@
-.chartRight{
-    width: 320px;
-    float:right;
+.chart-right{
+    width: 300px;
+    position: absolute;
+    bottom: 60px;
+    right: 170px;}
+
+.chart-left{
+  
+    width: 300px;
+    position: absolute;
+    bottom: 60px;
+    left: 170px;
+}
+.left-writing{
+    position: absolute;
+    bottom: 350px;
+    left: 240px;
+}
+.rigth-writing{
+    position: absolute;
+    bottom: 350px;
+    right: 170px;
 }

@@ -23,27 +23,55 @@ const[allDates,setAllDates]=useState(0)
     })
   
   },[date]);
-  console.log(countDates);
-
+  const [allCheckTask,setAllCheckTask]=useState(0);
+  const [allTask,setAllTask]=useState(0);
+  useEffect(()=>{
+    fetch('/take_tasks', {
+     method: 'post',
+     headers: {'Content-Type': 'application/json'}
+   }).then(response=>response.json()).then(data=>{
+data.forEach(element => {
+  setAllTask(prev=>prev+1);
+  if(element.checked===1){
+    setAllCheckTask(prev=>prev+1);
+    
+  }   
+    });
+    
+   })   
+   },[]);
   
   return (
     <div>
       <Calendar onChange={setDate} value={date}/>
+     <h1 className='left-writing'>All tasks</h1>
+      <div className='chart-left'>
+          <MyChart doneTask={allCheckTask}
+          inProgress={Math.abs(allTask-allCheckTask)}
+          />
+          </div>
         <div className='TheListDB'>
           <div className='intemListDB'>
             <DashboardList 
             todos={datelist}
             setCountDates={setCountDates}
             setAllDates={setAllDates}/>
+          </div >
           </div>
-          <h1 style={{right:"200px"}}>Tasks {date.toDateString()}</h1>
-      <div className='chartRight'>
-        
+         
+      
+          
+     <h1 className='rigth-writing'>Tasks {date.toDateString()}</h1>
+     <br />
+      <div className='chart-right'>
+     
           <MyChart doneTask={countDates}
           inProgress={Math.abs(allDates-countDates)}
           />
+         
       </div>
-    </div>
+      
+   
     </div>
   )
 }
